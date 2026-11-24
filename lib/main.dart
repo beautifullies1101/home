@@ -14,15 +14,21 @@ void main() {
   } else if (size == "L") {
     sizePrice = 400;
   }
-  String topping = "Кокос";
+  String topping = "Карамель";
   double toppingPrice = 0;
   if (topping == "Кокос") {
     toppingPrice = 150;
   } else if (topping == "Ваниль") {
     toppingPrice = 150;
-  } else if (topping == "Нет") {
-    toppingPrice = 0;
+  } else if (topping == "Карамель") {
+    toppingPrice = 200;
   }
+  List<String> toppings = ["Кокос", "Ваниль", "Карамель"];
+  Map<String, double> toppingPrices = {
+    "Кокос": 150,
+    "Ваниль": 150,
+    "Карамель": 200,
+  };
   double cupPrice = price + sizePrice + toppingPrice;
   double total = cupPrice * quantity;
   double discount = 0;
@@ -36,7 +42,7 @@ void main() {
   if (topping == "Кокос") {
     text = "Ваш раф с кокосом!";
   } else {
-    text = "Ваш раф без кокоса";
+    text = "Ваш раф";
   }
   print("========================");
   print("      Dastan      ");
@@ -45,6 +51,14 @@ void main() {
   print("Размер: $size");
   print("Количество: $quantity");
   print("Добавка: $topping");
+  print("Доступные добавки:");
+  for (int i = 0; i < toppings.length; i++) {
+    print("${i + 1}. ${toppings[i]}");
+  }
+  print("Список добавок:");
+  toppings.forEach((item) {
+    print(item);
+  });
   print("------------------------");
   print("Цена напитка: $price тг");
   print("Размер стакана: $sizePrice тг");
